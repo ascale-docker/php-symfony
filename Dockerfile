@@ -8,5 +8,5 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 RUN echo "$nproc"
 
 RUN apt-get update \
-    && docker-php-ext-install -j pdo_mysql \
-    && docker-php-ext-install -j intl
+    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install intl
