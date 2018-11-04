@@ -7,6 +7,7 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 
 RUN echo "$nproc"
 
-RUN apt-get update \
+RUN apt-get update && apt-get install -y \
+        libicu-dev \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install intl
